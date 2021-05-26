@@ -60,12 +60,12 @@ resource "azurerm_cdn_endpoint" "cdn_static_site" {
     
     url_file_extension_condition {
       operator = "LessThan"
+      match_values = ["1"]
     }
 
     url_rewrite_action {
-      source_pattern = "/"
+      source_pattern = "/."
       destination = "/index.html"
-      preserve_unmatched_path = true
     }
 
     modify_response_header_action {
